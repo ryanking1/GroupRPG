@@ -1,0 +1,47 @@
+store.vtl
+
+<h1>Welcome to the Store</h1>
+
+<form action='/buyWeapon' method='post'>
+    <input id="player_id" name="player_id" type="hidden" value="$player.getId()">
+    <label for="task_id">Buy a weapon</label>
+    <select id='weapon_id' name='weapon_id' type='text'>
+      #foreach($weapon in $weapons.all())
+        <option value="$weapon.getId()"> Weapon: $weapon.getWeaponName() Cost: $weapon.getWeaponCost() </option>
+      #end
+    </select>
+    <button type='submit'>Buy Weapon</button>
+</form>
+
+<form action='/sellWeapon' method='post'>
+    <input id="player_id" name="player_id" type="hidden" value="$player.getId()">
+    <label for="task_id">Sell a weapon</label>
+    <select id='weapon_id' name='weapon_id' type='text'>
+      #foreach($weapon in $player.getWeapons())
+        <option value="$weapon.getId()"> Weapon: $weapon.getWeaponName() Cost: $weapon.getWeaponCost() </option>
+      #end
+    </select>
+    <button type='submit'>Buy Weapon</button>
+</form>
+
+<form action='/buyBodyArmor' method='post'>
+    <input id="player_id" name="player_id" type="hidden" value="$player.getId()">
+    <label for="body_armor_id">Buy Body Armor</label>
+    <select id='body_armor_id' name='body_armor_id' type='text'>
+      #foreach($armor in $bodyArmor.all())
+        <option value="$bodyArmor.getId()"> Armor: $bodyArmor.getBodyArmorName() Cost: $bodyArmor.getBodyArmorCost() </option>
+      #end
+    </select>
+    <button type='submit'>Buy Body Armor</button>
+</form>
+
+<form action='/buyHeadArmor' method='post'>
+    <input id="player_id" name="player_id" type="hidden" value="$player.getId()">
+    <label for="head_armor_id">Buy Head Armor</label>
+    <select id='head_armor_id' name='head_armor_id' type='text'>
+      #foreach($armor in $headArmor.all())
+        <option value="$headArmor.getId()"> Armor: $headArmor.getHeadArmorName() Cost: $bodyArmor.getHeadArmorCost() </option>
+      #end
+    </select>
+    <button type='submit'>Buy Head Armor</button>
+</form>
